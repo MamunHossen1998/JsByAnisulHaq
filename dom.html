@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body style="height: 150vh;">
+  <div class="mydiv">
+    <h3>Dom</h3>
+     <p id="test1">Click Me</p>
+     <h4>Hello Bangladesh</h4>
+     <h4 id="clk">Bye Bangladesh</h4>
+     <h5 id="qselector">Test query</h5>
+     <a href="">Test one</a>
+     <h3 class="clk3">I love my country</h3>
+     <a href="">Test two</a>
+     <button  class="clk1" onclick="clk1()">Test three</button>
+     <p class="clk2">Demo</p>
+     <img id="testImg" src="#" alt="" height="200">
+     
+     <details>
+      <summary>About Bangladesh</summary>
+      <p>Bangladesh is a small country. But has a huge population</p>
+     </details>
+
+     </div>
+   
+
+   
+    <script>
+        // alert("hi");
+      document.getElementById("test1").innerHTML="Mamun";
+      document.getElementsByTagName('h4')[0].innerHTML="okey sir";
+      document.querySelector("#qselector").innerHTML = "Query selector";
+      document.querySelectorAll("a")[0].innerHTML = "All test";
+      function clk1(){
+       let val =  document.querySelector(".clk1").innerHTML;
+       document.querySelector(".clk2").innerHTML="click one";
+       document.querySelector("#testImg").src="img/1.JPG";
+      }
+     let clk3=document.querySelector(".clk3");
+    //  clk3.setAttribute("style", "font-size:50px;color:red;font-family:arial");
+     clk3.style.color="green";
+     let heading1 = document.createElement("h1");
+     let text = document.createTextNode("I am Mamun");
+     heading1.appendChild(text);
+     document.querySelector(".mydiv").appendChild(heading1);
+
+     let mydiv =    document.querySelector(".mydiv");
+     let head1 = document.getElementsByTagName("h1")[0];
+     document.querySelector(".mydiv").removeChild(head1);
+
+     let heading2 = document.createElement("h6");
+     let text6 = document.createTextNode("What's your name");
+     heading2.appendChild(text6);
+     let p = document.getElementsByTagName("h3")[0];
+    mydiv.insertBefore(heading2,p); 
+
+
+    let Sbody = document.querySelector("body");
+    window.addEventListener('load',function(){
+      console.log("load");
+    })
+    window.addEventListener('unload',function(){
+      console.log("unloaded");
+    })
+    window.addEventListener('scroll',function(){
+      console.log("scrolling");
+    })
+    window.addEventListener('resize',function(e){
+      let width = e.target.outerWidth;
+      let height = e.target.outerHeight;
+      console.log(`width: ${width} height: ${height}`);
+    })
+
+    let details = document.querySelector("details");
+    details.addEventListener('toggle',function(e){
+      console.log(e);
+      console.log(e.target.open);
+    })
+
+    </script>
+</body>
+</html>

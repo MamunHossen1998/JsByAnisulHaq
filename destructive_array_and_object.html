@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h3>Destructiv array and object </h3>
+ 
+  <script>
+    //Destructive array
+    let numbers = [2,3,4,5];
+    let [num1,num2,num3,mum4] = numbers;
+    let numbers2 = [7,8,9,5,1];
+    let [n1,n2,...z] = numbers2;
+    console.log(z);
+
+    //Swap variables
+    let x=20,y=30;
+    [x,y] = [y,x];
+    console.log(x);
+
+    //Destructive Object
+    let studentsInfo = {
+      'id':201,
+      'name':'Mamun',
+      'age':11,
+      'cgpa':3.00
+
+    }
+    console.log(studentsInfo.age);
+    let {id,cgpa} = studentsInfo;
+    console.log(cgpa);
+
+    //Nested object destructive
+    let address ={
+      upazila:'Bauphal',
+      union:'Kalaiya',
+      word_no:6,
+      info:{
+        name:'Mamun',
+        age:23,
+        class:10
+      }
+    }
+   let {upazila,info} = address;
+    console.log(upazila);
+    console.log(info.class);
+    //Function er modde object destructive
+    let examination =({ssc,bsc})=>  {
+      console.log(`${bsc}`);
+    }
+    let examinationInfo ={
+      ssc:2015,
+      diploma:2019,
+      bsc:2023
+    }
+   examination(examinationInfo);
+ 
+  </script>
+  
+</body>
+</html>

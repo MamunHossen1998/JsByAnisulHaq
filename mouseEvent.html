@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+ <link rel="stylesheet" href="style.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  
+</head>
+<body>
+   <div class="container">
+    <div class="row">
+        <div class="col-lg-10 m-auto">
+            <div class="mt-5 ">
+                <div class="mouseEvent text-center">
+                     <p>Mouse Event</p>
+                     <button class="btn">button one</button>
+                     <button class="btn">button two</button>
+                     <button class="btn">button three</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+
+
+
+   <script>
+    $(".btn").click(function(e){
+        // let text =this.textContent;
+        // let text =this.innerHTML;
+        let text =this.innerText;
+        console.log("data is "+text);
+    })
+    let mouseEvent = document.querySelector(".mouseEvent");
+    mouseEvent.addEventListener('click',function(){
+        mouseEvent.style.background="green";
+    })
+    mouseEvent.addEventListener('click',function(e){
+        let child = mouseEvent.children[0];
+        // let childText = child.innerHTML;
+        // let childText = mouseEvent.textContent;
+        // let childText = child.textContent;
+        let childText = mouseEvent.innerText;
+        child.style.color="red";
+        console.log(childText);
+    })
+    mouseEvent.addEventListener('dblclick',function(){
+        let child = mouseEvent.children[0];
+        child.style.color="white";
+    })
+    mouseEvent.addEventListener('mouseup',function(){
+       console.log("mouse up occured");
+    })
+    mouseEvent.addEventListener('mousedown',function(){
+       console.log("mouse down occured");
+    })
+    mouseEvent.addEventListener('mouseenter',function(){
+       console.log("mouse enter occured");
+    })
+    mouseEvent.addEventListener('mouseleave',function(){
+       console.log("mouse leave occured");
+    })
+    mouseEvent.addEventListener('mouseover',function(){
+       console.log("mouseover occured");
+    })
+    mouseEvent.addEventListener('mousemove',function(e){
+        // let x = e.clientX;//window er sathey compare kore
+        // let y = e.clientY;
+        let x = e.offsetX;//element er sathey compare kore
+        let y = e.offsetY;
+        console.log(`x-axis ${x} y-axis ${y}`);
+    //    console.log("mousemove occured");
+    })
+
+    let btn = document.querySelectorAll(".btn");
+    Array.from(btn).map((bt)=>{
+        bt.addEventListener('click',function(e){
+            console.log(e.target.innerText);
+        })
+    });
+
+   </script>
+</body>
+</html>

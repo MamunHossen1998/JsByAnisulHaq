@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <h3>Promise</h3>
+    
+   
+
+
+    <script>
+      let $testArr = [3,45,8,90.4];
+      document.write($testArr.slice(2,3));
+        let names =[1,3,5,7,9];
+        names.push(11);
+
+        let $arr1 = [
+            1,
+            2,
+            3
+        ];
+        let $arr2 = [4,5,6];
+        let $arr4 = [7,8,9];
+        let arr3 = $arr1.concat($arr2,$arr4);
+        console.log(arr3);
+       
+        // names[4] = "Suzon";
+        for (let n = 0; n< names.length; n++) {
+            document.write(names[n]);
+            
+        }
+        document.write(names.length);
+        const t1 = function test1(){
+            document.write("hello world");
+        }
+        t1();
+
+       (function test(value){
+        document.write(value );
+       })("i am mamun");
+       let number = 4;
+       let result = number == 2 ? " two": number == 3 ? "three": number == 4 ? "Four" : "less than";
+        document.write(result);
+
+        let sTest = ["mamun","Hasan","noman","belal","fahim","amin"];
+        sTest.sort();
+        sTest.reverse();
+        document.write(sTest);
+        function maxNumber(n){
+            n.sort(function(a,b){
+           return a-b ;
+            });
+            // number.sort(function(a,b){
+            //   return a-b
+            // })
+        }
+        let mNumber = [3,6,2,4,12,34,25,55];
+        console.log(mNumber);
+        console.log(maxNumber(mNumber));
+ 
+       
+        
+
+    </script>
+</body>
+</html>

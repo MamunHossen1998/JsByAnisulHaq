@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="height: 150px;">
+    
+    <form action="">
+        <div class="row mt-5 ml-5">
+            
+            <label for="">Name:</label>
+            <input type="text" name="name" id="name" autofocus>   
+        
+            <label for="">Email:</label>
+            <input type="email" name="email" id="email" autofocus>
+        
+            <label for="">Password:</label>
+            <input type="password" name="password" id="password" autofocus >
+           
+            <button type="submit" class="btn btn-info">Submit</button>
+
+            <details>
+                <summary>Mamun</summary>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea alias tempore dolorum autem est voluptatum eius nihil esse voluptate voluptates?</p>
+            </details>
+            
+            <button class="btn btn-primary" id="modalOpen">Modal open</button>
+            
+        </div>
+    </form>
+    <h3 id="ban">Bangladesh</h3>
+    <h4 id="click">Click Me</h4>
+    <!-- <input type="text" name="" id="click" placeholder="click"> -->
+    <label for="">Price</label>
+    <input type="text" id="price">
+    <input type="text" id="second">
+    <button class="btn btn-info buttons">Button one</button>
+    <button class="btn btn-success buttons">Button two</button>
+    <button class="btn btn-danger buttons">Button three</button>
+
+    
+   <!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="text-danger addText">You alreadu logout</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+ //try catch error handling
+
+ 
+
+  console.log(location);
+    var modalOpen = document.querySelector("#modalOpen");
+    modalOpen.addEventListener('click',function(){
+        // $('#exampleModal').modal('show');
+        console.log("modal");
+        // $("#sentMessage").click();
+    });
+    var buttons = document.querySelectorAll('.buttons');
+    Array.from(buttons).map((buttons)=>{
+        buttons.addEventListener('click',function(e){
+            $('#exampleModal').modal('show');
+            var text = e.target.innerText;
+            $('.addText').innerText = text;
+            // $('.addText').html(text);
+        });
+
+    });
+    console.log(buttons);
+    var click = document.querySelector("#click");
+    click.addEventListener('click',function(e){
+        
+        // console.log(e.target.id);
+        // console.log(e.target.className);
+        // console.log(e.target.innerText);
+        console.log(e.target.textContent);
+       
+    });
+    var ban = document.querySelector("#ban");
+    ban.addEventListener('mouseup',function(){
+        console.log("mouseup");
+    });
+    ban.addEventListener('mousedown',function(){
+        console.log("mousedown");
+    });
+    ban.addEventListener('mouseenter',function(){
+        console.log("mouseenter");
+    });
+    ban.addEventListener('mouseleave',function(){
+        console.log("mouseleave");
+    });
+    var v =document.querySelector("#price");
+    var s =document.querySelector("#second");
+    v.addEventListener('change',function(e){
+    var p = v.value;
+    s.value=p ;
+    });
+
+        
+    
+    window.addEventListener("load",function(){
+        console.log("loaded");
+    });
+    window.addEventListener("scroll",function(){
+        console.log("scroll");
+    });
+    window.addEventListener("resize",function(){
+        console.log("resize");
+    });
+
+    var details = document.querySelector("details");
+    details.addEventListener("toggle",function(e){
+        console.log(e.target.open);
+    });
+
+    var form = document.querySelector("form");
+    var fname = document.querySelector("#name");
+    var email = document.querySelector("#email");
+    var password = document.querySelector("#password");
+    form.addEventListener("submit",auth);
+    function auth(e){
+        e.preventDefault();
+      var info ={
+        name:fname.value,
+        email:email.value,
+        password:password.value
+      }
+      console.log(info);
+      fname.value ="";
+      email.value ="";
+      password.value ="";
+
+    }
+   
+</script>
+</body>
+</html>

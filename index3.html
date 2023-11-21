@@ -1,0 +1,176 @@
+<!-- 
+    object literals, object er modde function declare, for of and for in, for vs foreach
+    map,filter
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+    
+<h4>Index 03</h4>
+
+<div class="container">
+    <div class="row m-auto">
+        <div class="col-lg-12">
+            <div class="form">
+                <form action="">
+                    <div class="form-control">
+                        <select name="" id="" class="select2">
+                            <option value="">one</option>
+                            <option value="">Two</option>
+                            <option value="">Three</option>
+                            <option value="">four</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+    $('.select2').select2({
+    closeOnSelect: false
+});
+});
+    //Arrow function
+
+    function addT(num1,num2){
+        return num1+num2;
+    }
+    console.log(`Traditional add `+addT(12,23));
+
+    let addA = (num1,num2)=> num1+num2;
+    console.log(`Arrow function add `+addA(5,5));
+    
+    function displayFirst(){ console.log(`First display function`); }
+    displayFirst();
+    let displaySecond = ()=>console.log(`Second display function`);
+    displaySecond();
+
+    function messageFirst(){
+        return "Message first";
+    }
+    console.log(messageFirst());
+    let messageSecond = ()=> "Message second"; 
+    console.log(messageSecond());
+
+    // object literals
+    function objectLiterals(name,age){
+        return {
+            name,age,
+        }
+    }
+    console.log(objectLiterals("Mamun","12"));
+
+    //Object er modde function declare
+    let message = {
+        show:function(){
+            return {
+                name:"Mamun",
+                class:"eight"
+            }
+        }
+    }
+    console.log(message.show());
+    
+    //Object er modde concise function declare
+    let message2 ={
+        show2(){
+            return "I am consice function";
+        }
+    }
+    console.log(message2.show2());
+
+    let message3 = {
+        'message show'(){
+            return " Write function name use space";
+        }
+    }
+    console.log(message3['message show']());
+    //for off
+    let forOffArrr = ["Mamun","Sohel","Kamal"];
+    for (let name of forOffArrr) {
+        console.log(name);     
+    }
+    //for in - object k iterate korer jonno
+
+    let forInObj = {
+        name:"Mamun",
+        age:"12",
+        roll:"3",
+
+    }
+    for (let name in forInObj) {
+       console.log(`${name} : ${forInObj[name]}`); 
+    }
+
+    //For loop
+    let forLooparr = [122,23,45,67];
+    for (let x = 0; x < forLooparr.length; x++) {
+      console.log(forLooparr[x]);
+        
+    }
+    //forEach loop
+    let forEachLoop = [34,56,78];
+    forEachLoop.forEach(forEachLoopFunction);
+    function forEachLoopFunction(x){
+        console.log(x);
+    }
+    let forEachLoop2 = [1,2,3];
+    forEachLoop2.forEach(function(x){
+        console.log(x);
+    });
+    let arrayPush = [];
+    forEachLoop2.forEach(function(x){
+        arrayPush.push(x*x);
+    })
+    console.log(` After push ${arrayPush}`);
+
+    let forEachLoop3 = [5,10,15];
+    let arrayPush2 = [];
+    forEachLoop3.forEach(function(x,index,arr){
+        arr[index] = x+5;
+        arrayPush2.push(arr[index]);
+    });
+    console.log(`After adding with every array values ${forEachLoop3}`);
+    //Map
+    let arrMaps = [2,4,6];
+    let arrMap = arrMaps.map(function(x){
+        return x*x;
+       
+    })
+    console.log(`After map ${arrMap}`);
+    //filter
+    let arrFilters = [10,20,30];
+
+    let arrFilter = arrFilters.filter(function(x){
+        return x>10;
+    });
+    console.log(`After filter ${arrFilter}`);
+
+
+    
+
+</script>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>

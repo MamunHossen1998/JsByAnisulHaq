@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <br>
+<label for="">Name</label>
+<!-- <input type="text" name="fname" id="name">
+<input type="text" name="email" id="name">
+<input type="text" name="age" id="age"> -->
+<input type="checkbox" name="program" id="" value="c">C
+<input type="checkbox" name="program" id="" value="plus">C+
+<input type="checkbox" name="program" id="" value="sharp">C#
+
+<div>
+  <label for="">Password</label>
+  <input type="text" name="" id="pass"  disabled>
+  <span class="text-danger pass_err"></span>
+</div>
+<P>Focus event</P>
+<label for="">Blur Focus</label>
+<input type="text" id="focus_val" class="focucs_val">
+<br>
+<P>Clipboard Event Object </P>
+<label for=""> Copy Cut Paste</label>
+<input type="text" id="copyCutPaste" class="focucs_val">
+<p id="copyCutPasteAlert"></p>
+<P class="add"></P>
+<p>Browser object model</p>
+<div id="location_div">
+  <p></p>
+  <p></p>
+</div>
+<button id="assingNewPage" class="btn btn-info">New page</button>
+
+<h4>Confirm alert</h4>
+<p id="confirmDelete" onclick="return confirm('Are you sure?')">Click Here</p>
+<h2 class="inputvaluePush"></h2>
+
+<button class="btn btn-info" id="count">count</button>
+<h4 class="count"></h4>
+
+<button class="btn btn-primary" id="setClock">Set clock</button>
+<h3 id="setClockPush"></h3>
+ 
+  <script>
+
+
+  $x = [3,4,5];
+  $y = [6,7];
+  console.log([...$x,...$y]);
+
+
+    //try catch error handling
+    try{
+      console.log("run time error");
+      console.log(mamun)
+    }catch(e){
+      console.log("inside the catch");
+      console.log(e.message);
+      console.log(e.name);
+    }finally{
+      console.log("finnaly statement");
+    }
+
+   
+ 
+    'use strict'
+     value = 3;
+   
+    console.log(`result is ${value}`);
+    var value;
+
+    var arr1 = [2,3,5];
+    var arr2 = [6,7,8];
+    var afterConcat = arr1.concat(arr2);
+    console.log(afterConcat);
+
+    var afterSpread = [...arr1,...arr2];
+    console.log(afterSpread);
+
+   
+    
+    //set clock
+    var setClock = document.querySelector("#setClock");
+    var setClockPush = document.querySelector("#setClockPush");
+    setClock.addEventListener('click',clockStart);
+    function clockStart() {
+      var date = new Date();
+      var hour = date.getHours();
+      var minute = date.getMinutes();
+      var second = date.getSeconds();
+      minute = timeFormat(minute);
+      second = timeFormat(second);
+      var time = hour +": "+ minute +": "+ second;
+      setClockPush.innerHTML = time;
+      setInterval(clockStart, 1000);
+
+    }
+
+    function timeFormat(value) {
+      var value = value;
+      if(value < 10){
+        value = "0"+value;
+      }
+      return value;
+    }
+
+
+    var count = document.querySelector("#count");
+    var countData =  document.querySelector(".count");
+    count.addEventListener('click',countShow);
+    function countShow(){
+      var c= 0;
+      countData.innerHTML = c;
+
+      setInterval(()=>{
+      c++;
+      countData.innerHTML = c;
+
+    },1000)
+    }
+    
+    //Set time out function 
+    // setTimeout(()=>{
+    //   alert("HI");
+    // },3000);
+
+    // setTimeout(setMessage,8000);
+    // function setMessage() {
+    //   alert("Bangladesh");
+    // }
+  //  setInterval(()=>{
+  //   alert("i Love");
+  //  },3000);
+  // setInterval(showMessage,2000);
+  // function showMessage(){
+  //   alert("Kire Mona");
+  // }
+    var inputValue = prompt("Please enter the value ");
+    var inputvaluePush =  document.querySelector(".inputvaluePush");
+    var h1 = document.createElement("h3");
+    inputvaluePush.innerText = inputValue;
+    if(inputValue == null || inputValue == ''){
+      var data = "Data not found";
+    }else{
+      var data = inputValue;
+    }
+    var textNode = document.createTextNode(data);
+    h1.appendChild(textNode);
+    document.body.appendChild(h1);
+    // inputvaluePush.innerHTML = inputValue;
+    
+    
+    console.log(inputValue);
+
+    var confirmDelete = document.querySelector("#confirmDelete");
+    confirmDelete.addEventListener("click",function(e){
+      console.log(e.target.textContent);
+      // console.log(e.target.innerHTML);
+      // console.log(e.target.innerText);
+    });
+
+    // console.clear();
+    var assingNewPage = document.querySelector('#assingNewPage');
+    assingNewPage.addEventListener('click',function(e){
+      location.assign("index2.html");
+    })
+    var location_div = document.querySelector("#location_div");
+
+    var first_child = location_div.children[0];
+    first_child.textContent = "Host Name "+location.hostname;
+  //  console.log(location.href);
+  // protocol
+   console.log("Protocol- "+location.protocol);
+  //hostname
+   console.log("HostName- "+location.hostname);
+   //Port
+   console.log("Port "+location.port);
+   //Pathname
+   console.log("PathName- "+location.pathname);
+    var copyCutPasteAlert = document.querySelector("#copyCutPasteAlert");
+    var add = document.querySelector(".add");
+
+    var copyCutPaste =document.querySelector("#copyCutPaste");
+    copyCutPaste.addEventListener('copy',function(e){
+      copyCutPasteAlert.innerHTML = "You did the copy";
+     
+    });
+    copyCutPaste.addEventListener('cut',function(e){
+      copyCutPasteAlert.innerHTML = "You did the cut";
+     
+    });
+    copyCutPaste.addEventListener('paste',function(e){
+      copyCutPasteAlert.innerHTML = "You did the paste";
+     
+    });
+    copyCutPaste.addEventListener('keyup',function(e){
+      add.innerHTML = e.target.value;
+     
+    });
+    var focus_val = document.querySelector("#focus_val");
+    focus_val.addEventListener('blur',function(e){
+      focus_val.value = e.target.value.toUpperCase();
+      // console.log(e.target.value);
+    });
+    
+    var pass = document.querySelector("#pass");
+    var pass_err = document.querySelector(".pass_err");
+    // pass_err.style.display = "none";
+    pass.addEventListener('keyup',function(e){
+      console.log(e.key);
+      // var value =  e.target.value
+      // if(!isNaN(value)){
+      //   pass_err.innerHTML = 'wrong';
+      //   pass_err.style.display = 'block';
+      //   // $('.pass_err').show();
+       
+      // }else{
+      //   pass_err.style.display = "none";
+      //   $('.pass_err').hide();
+      // }
+    });
+  var program = document.querySelectorAll("input[name=program]");
+// console.log(program);
+  // program.addEventListener("change",auth);
+  Array.from(program).map((program) => {
+    program.addEventListener("change",phandler);
+  });
+  function phandler(e){
+    if(e.target.checked){
+      console.log("checked");
+    }
+  }
+ 
+  </script>
+  
+</body>
+</html>
