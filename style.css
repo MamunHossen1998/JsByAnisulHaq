@@ -15,3 +15,8 @@
     height: 200px;
    
 }
+.dragDiv{
+    height: 10rem;
+    width: 10rem;
+    background-color: greenyellow;
+}
