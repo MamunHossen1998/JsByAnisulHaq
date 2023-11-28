@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body >
+  
+   <div class="container">
+    <div class="row m-auto">
+        <div class="col-lg-8 mt-5">
+            <label for="">Traditional function vs Arrow Function</label><br> 
+        </div>
+    </div>
+   </div>
+
+   
+    <script>
+        //Traditional function
+        function message(){
+            console.log("Traditional message");
+        }
+        message();
+        function message1(){ console.log("Traditional message one");  }
+        message1();
+
+        function message3(){
+            return " Traditional message two";
+        }
+        console.log(message3());
+
+        //Arrow function 
+        let aMessage = ()=>{
+            console.log("Arrow message");
+        }
+        aMessage();
+
+        let aMessage1 =()=>{ console.log("Arrow message one"); }
+        aMessage1();
+
+        let aMessage3 = ()=>{
+            return "Arrow message two";
+        }
+        console.log(aMessage3());
+        
+        let aMessage4 = ()=>"Arrow Message four";
+        console.log(aMessage4());
+
+        let arrowFunWithParameter = (a,b)=>a+b;
+        console.log(arrowFunWithParameter(3,4));
+
+        let info = [
+            [1,2,30],
+            [4,5,6],
+        ];
+        info.forEach((val,index)=>{
+            console.log(`data is ${val}`);
+        }
+        )
+
+
+        let studentInfo = [
+            {
+                name:"Mamun",
+                id:201,
+                batch:103,
+                year:2010
+            },
+            {
+                name:"Mohon",
+                id:202,
+                batch:102,
+                year:2011
+            }
+        ];
+       for(let info in studentInfo){
+        console.log(studentInfo[info]);
+        for(let data in studentInfo[info]){
+            console.log(studentInfo[info][data]);
+        }
+       }
+
+
+       function studentData(){
+        return studentInfo.filter((x)=>{
+           return x.year==2010 
+        }).map((y)=>{
+            return y.name;
+        })
+       }
+       console.log(studentData());
+
+       let studentDataArrowFun = ()=>{
+        return studentInfo.filter((x)=>x.batch==102).map((y)=>y.name);
+       }
+       console.log(studentDataArrowFun());
+
+
+        // console.log(studentInfo.length);
+
+    </script>
+</body>
+</html>
