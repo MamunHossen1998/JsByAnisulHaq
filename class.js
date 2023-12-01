@@ -1,3 +1,4 @@
+
 class Student{
   constructor(name,id){
   this.name = name;
@@ -17,3 +18,5 @@ console.log(obj);
 
 console.log(obj.studentName='hi');
 obj.info;
+
+

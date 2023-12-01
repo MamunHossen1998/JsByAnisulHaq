@@ -15,40 +15,42 @@
 
 
    <script>
-    console.log("Hi");
+   console.log("hi");
     let taskOne = ()=>{
         return new Promise((resolve,reject)=>{
-            resolve("First resolve is complete")
+            resolve("Task one is complete")
         })
     }
     let taskTwo = ()=>{
         return new Promise((resolve,reject)=>{
             setTimeout(()=>{
-                resolve("Second resolve is complete")
+                resolve("Task two is complete")
             },2000)
-
+           
         })
     }
     let taskThree = ()=>{
         return new Promise((resolve,reject)=>{
-            resolve("Three resolve is complete")
+            resolve("Task three is complete")
         })
     }
     let taskFour = ()=>{
         return new Promise((resolve,reject)=>{
-            resolve("Four resolve is complete")
+            reject("Task four is complete")
         })
     }
-    taskOne()
-    .then((res)=> console.log(res))
-    .then(taskTwo)
-    .then((res)=> console.log(res))
-    .then((taskThree))
-    .then((res)=>console.log(res))
-    .then(taskFour)
-    .then((res)=>console.log(res))
-    .catch((err)=>console.log(err))
+    let usingAsyncAwait = async()=>{
+        let one = await taskOne();
+        console.log(one);
+        let two = await taskTwo();
+        console.log(two);
+        let three = await taskThree();
+        console.log(three);
+        let four = await taskFour()
+        console.log(four);
 
+    }
+    usingAsyncAwait();
     console.log("Bye");  
 
    </script>
